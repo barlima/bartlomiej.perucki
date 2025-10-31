@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Manjari } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const manjari = Manjari({
+  subsets: ["latin"],
+  variable: "--font-manjari",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${manjari.variable} antialiased`}>
         <div className="max-w-[1240px] mx-auto">
           <div className="px-4 md:px-8 lg:px-16">{children}</div>
         </div>
