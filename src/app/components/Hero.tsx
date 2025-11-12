@@ -3,7 +3,7 @@ export default function Hero() {
     <div className="relative h-screen">
       <div className="absolute inset-0 bg-background h-[17vw] 2xl:h-[262px]">
         <div className="text-[min(10vw,152px)] h-[20vw] font-black leading-[9vw] 2xl:leading-[138px] uppercase text-transparent bg-clip-text bg-[url('/images/forest.jpg')] bg-cover absolute w-full border-[1px] border-solid border-background border-b-0">
-          <h1 className="">
+          <h1>
             Bartłomiej
             <br />
             Perucki
