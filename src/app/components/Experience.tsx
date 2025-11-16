@@ -194,13 +194,13 @@ function ExpandableItem({ title, children }: ExpandableItemProps) {
       <div className="flex items-center mb-1">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="px-4 py-1 text-sm border border-gray-300 rounded hover:bg-gray-100 transition-colors"
+          className="px-4 py-1 text-sm rounded border border-gray-300 transition-colors cursor-pointer hover:bg-gray-100"
         >
           {isExpanded ? "View less" : "View more"}
         </button>
-        {title && <h4 className="font-semibold text-lg ml-3">{title}</h4>}
+        {title && <h4 className="ml-3 text-lg font-semibold">{title}</h4>}
       </div>
-      {isExpanded && <div className="mt-2">{children}</div>}
+      <div className={`mt-2 ${isExpanded ? 'block' : 'hidden'}`}>{children}</div>
     </div>
   );
 }
@@ -221,72 +221,102 @@ function Experience() {
   };
 
   return (
-    <div className="flex flex-col gap-8 mt-16 px-4 max-w-7xl mx-auto">
+    <div className="flex flex-col gap-8 px-4 mx-auto mt-16 max-w-7xl">
       <h2 className="text-6xl font-bold">Experience</h2>
 
       <div className="relative">
         {/* Continuous vertical line */}
-        <div className="absolute left-[7.5rem] top-0 bottom-0 w-0.5 bg-gray-300"></div>
+        <div className="absolute left-[2rem] md:left-[7.5rem] top-0 bottom-0 w-0.5 bg-gray-300"></div>
 
         {experienceData.map((experience, index) => (
-          <div key={index} className="flex gap-6 mb-8 relative">
-            {/* Left side - End Date */}
-            <div className="flex-shrink-0 w-24 text-right pt-0">
+          <div key={index} className="flex relative gap-3 mb-8 md:gap-6">
+            {/* Left side - Dates */}
+            <div className="flex flex-shrink-0 justify-end items-start pt-0 w-6 text-right md:w-24">
+              {/* Mobile view - rotated */}
               <div
-                className="font-mono text-sm font-bold text-right"
+                className="font-mono text-sm -rotate-90 origin-bottom-right whitespace-nowrap md:hidden translate-y-[-1rem]"
                 style={{ color: "var(--green)" }}
               >
-                {experience.endDate === "present"
-                  ? "Current"
-                  : experience.endDate}
+                {experience.endDate === "present" ? (
+                  <span>
+                    <span className="font-normal">since</span>{" "}
+                    <span className="font-bold">{experience.startDate}</span>
+                  </span>
+                ) : (
+                  <span>
+                    <span className="font-normal">till</span>{" "}
+                    <span className="font-bold">{experience.endDate}</span>
+                    <span className="mx-2">•</span>
+                    <span className="font-normal">since</span>{" "}
+                    <span className="font-bold">{experience.startDate}</span>
+                  </span>
+                )}
+              </div>
+
+              {/* Desktop view - normal */}
+              <div
+                className="hidden font-mono text-sm text-right md:block"
+                style={{ color: "var(--green)" }}
+              >
+                {experience.endDate === "present" ? (
+                  <>
+                    <div className="font-normal">since</div>
+                    <div className="font-bold">{experience.startDate}</div>
+                  </>
+                ) : (
+                  <>
+                    <div className="font-normal">till</div>
+                    <div className="font-bold">{experience.endDate}</div>
+                    <div className="mt-2 font-normal">since</div>
+                    <div className="font-bold">{experience.startDate}</div>
+                  </>
+                )}
               </div>
             </div>
 
             {/* Middle - Timeline spacer */}
-            <div className="flex-shrink-0 relative flex flex-col items-center">
+            <div className="flex relative flex-col flex-shrink-0 items-center">
               <div className="w-3 h-3"></div>
             </div>
 
             {/* Right side - Content */}
-            <div className="flex-1 pb-4 relative">
+            <div className="relative flex-1 pb-4">
               <div className="mb-3">
-                <h3 className="text-2xl font-bold mb-1">
+                <h3 className="mb-1 text-2xl font-bold">
                   {experience.company}
                 </h3>
-                <p className="text-lg text-gray-700 mb-2">{experience.role}</p>
+                <p className="mb-2 text-lg text-gray-700">{experience.role}</p>
 
                 {index !== 0 && (
                   <button
                     onClick={() => toggleCompany(index)}
-                    className="px-4 py-2 text-sm border border-gray-300 rounded hover:bg-gray-100 transition-colors mb-2"
+                    className="px-4 py-2 mb-2 text-sm rounded border border-gray-300 transition-colors cursor-pointer hover:bg-gray-100"
                   >
                     {expandedCompanies.has(index) ? "View less" : "View more"}
                   </button>
                 )}
 
-                {(expandedCompanies.has(index) || index === 0) && (
-                  <div className="mt-2">
-                    <p className="text-gray-700 mb-2">
-                      {experience.description}
-                    </p>
+                <div className={`mt-2 ${expandedCompanies.has(index) || index === 0 ? 'block' : 'hidden'}`}>
+                  <p className="mb-2 text-gray-700">
+                    {experience.description}
+                  </p>
 
-                    {experience.techStack && !experience.projects && (
-                      <div className="mb-2">
-                        <p className="text-sm text-gray-600">
-                          <span className="font-semibold">Tech stack:</span>{" "}
-                          {experience.techStack.join(", ")}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                )}
+                  {experience.techStack && !experience.projects && (
+                    <div className="mb-2">
+                      <p className="text-sm text-gray-600">
+                        <span className="font-semibold">Tech stack:</span>{" "}
+                        {experience.techStack.join(", ")}
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Projects */}
               {experience.projects &&
                 experience.projects.map((project, projectIndex) => (
                   <div key={projectIndex} className="mb-3">
-                    <h4 className="text-xl font-semibold mb-1">
+                    <h4 className="mb-1 text-xl font-semibold">
                       {project.title}
                     </h4>
 
@@ -298,7 +328,7 @@ function Experience() {
                     </div>
 
                     <ExpandableItem title="">
-                      <ul className="list-disc list-inside space-y-2 text-gray-700 pl-2 text-sm">
+                      <ul className="pl-2 space-y-2 text-sm list-disc list-inside text-gray-700">
                         {project.responsibilities.map((resp, respIndex) => (
                           <li key={respIndex} className="leading-relaxed">
                             {resp}
@@ -308,16 +338,6 @@ function Experience() {
                     </ExpandableItem>
                   </div>
                 ))}
-
-              {/* Start date at bottom */}
-              <div className="absolute -left-[9.75rem] bottom-0 w-24 text-right">
-                <div
-                  className="font-mono text-sm font-bold text-right"
-                  style={{ color: "var(--green)" }}
-                >
-                  {experience.startDate}
-                </div>
-              </div>
             </div>
           </div>
         ))}
