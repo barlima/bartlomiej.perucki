@@ -35,3 +35,20 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter);
 }
+
+/* View More button text change on expand */
+.view-more-details .view-more-button::after {
+  content: "";
+}
+
+.view-more-details[open] .view-more-button::after {
+  content: " less";
+}
+
+.view-more-details .view-more-button::before {
+  content: "View more";
+}
+
+.view-more-details[open] .view-more-button::before {
+  content: "View";
+}

@@ -1,6 +1,6 @@
-"use client";
+import React from "react";
 
-import React, { useState } from "react";
+import ViewMore from "./ViewMore";
 
 type Project = {
   title: string;
@@ -181,45 +181,7 @@ const experienceData: ExperienceEntry[] = [
   },
 ];
 
-type ExpandableItemProps = {
-  title: string;
-  children: React.ReactNode;
-};
-
-function ExpandableItem({ title, children }: ExpandableItemProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  return (
-    <div className="mb-2">
-      <div className="flex items-center mb-1">
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="px-4 py-1 text-sm rounded border border-gray-300 transition-colors cursor-pointer hover:bg-gray-100"
-        >
-          {isExpanded ? "View less" : "View more"}
-        </button>
-        {title && <h4 className="ml-3 text-lg font-semibold">{title}</h4>}
-      </div>
-      <div className={`mt-2 ${isExpanded ? 'block' : 'hidden'}`}>{children}</div>
-    </div>
-  );
-}
-
 function Experience() {
-  const [expandedCompanies, setExpandedCompanies] = useState<Set<number>>(
-    new Set()
-  );
-
-  const toggleCompany = (index: number) => {
-    const newExpanded = new Set(expandedCompanies);
-    if (newExpanded.has(index)) {
-      newExpanded.delete(index);
-    } else {
-      newExpanded.add(index);
-    }
-    setExpandedCompanies(newExpanded);
-  };
-
   return (
     <div className="flex flex-col gap-8 px-4 mx-auto mt-16 max-w-7xl">
       <h2 className="text-6xl font-bold">Experience</h2>
@@ -287,19 +249,8 @@ function Experience() {
                 </h3>
                 <p className="mb-2 text-lg text-gray-700">{experience.role}</p>
 
-                {index !== 0 && (
-                  <button
-                    onClick={() => toggleCompany(index)}
-                    className="px-4 py-2 mb-2 text-sm rounded border border-gray-300 transition-colors cursor-pointer hover:bg-gray-100"
-                  >
-                    {expandedCompanies.has(index) ? "View less" : "View more"}
-                  </button>
-                )}
-
-                <div className={`mt-2 ${expandedCompanies.has(index) || index === 0 ? 'block' : 'hidden'}`}>
-                  <p className="mb-2 text-gray-700">
-                    {experience.description}
-                  </p>
+                <div className="mt-2">
+                  <p className="mb-2 text-gray-700">{experience.description}</p>
 
                   {experience.techStack && !experience.projects && (
                     <div className="mb-2">
@@ -327,7 +278,7 @@ function Experience() {
                       </p>
                     </div>
 
-                    <ExpandableItem title="">
+                    <ViewMore>
                       <ul className="pl-2 space-y-2 text-sm list-disc list-inside text-gray-700">
                         {project.responsibilities.map((resp, respIndex) => (
                           <li key={respIndex} className="leading-relaxed">
@@ -335,7 +286,7 @@ function Experience() {
                           </li>
                         ))}
                       </ul>
-                    </ExpandableItem>
+                    </ViewMore>
                   </div>
                 ))}
             </div>
