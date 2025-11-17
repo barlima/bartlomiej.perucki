@@ -28,7 +28,7 @@ export default function Skills() {
     <div className="flex flex-col gap-4">
       <h2 className="text-6xl font-bold">Skills</h2>
 
-      <ul className="grid grid-cols-1 xl:grid-cols-2 gap-0 xl:gap-8 mx-16 mt-8">
+      <ul className="grid grid-cols-2 gap-4 mx-2 mt-8 xl:gap-8 md:mx-16">
         <div>
           {SKILLS.slice(0, 10).map((skill, index) => (
             <Skill key={skill} index={index}>

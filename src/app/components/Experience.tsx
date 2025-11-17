@@ -200,12 +200,12 @@ function Experience() {
                 style={{ color: "var(--green)" }}
               >
                 {experience.endDate === "present" ? (
-                  <span>
+                  <span className="font-fraunces">
                     <span className="font-normal">since</span>{" "}
                     <span className="font-bold">{experience.startDate}</span>
                   </span>
                 ) : (
-                  <span>
+                  <span className="font-fraunces">
                     <span className="font-normal">till</span>{" "}
                     <span className="font-bold">{experience.endDate}</span>
                     <span className="mx-2">•</span>
@@ -221,17 +221,17 @@ function Experience() {
                 style={{ color: "var(--green)" }}
               >
                 {experience.endDate === "present" ? (
-                  <>
+                  <span className="font-fraunces">
                     <div className="font-normal">since</div>
                     <div className="font-bold">{experience.startDate}</div>
-                  </>
+                  </span>
                 ) : (
-                  <>
+                  <span className="font-fraunces">
                     <div className="font-normal">till</div>
                     <div className="font-bold">{experience.endDate}</div>
                     <div className="mt-2 font-normal">since</div>
                     <div className="font-bold">{experience.startDate}</div>
-                  </>
+                  </span>
                 )}
               </div>
             </div>
@@ -244,7 +244,7 @@ function Experience() {
             {/* Right side - Content */}
             <div className="relative flex-1 pb-4">
               <div className="mb-3">
-                <h3 className="mb-1 text-2xl font-bold">
+                <h3 className="mb-1 text-2xl font-bold font-fraunces">
                   {experience.company}
                 </h3>
                 <p className="mb-2 text-lg text-gray-700">{experience.role}</p>
@@ -266,7 +266,7 @@ function Experience() {
               {/* Projects */}
               {experience.projects &&
                 experience.projects.map((project, projectIndex) => (
-                  <div key={projectIndex} className="mb-3">
+                  <article key={projectIndex} className="mb-3">
                     <h4 className="mb-1 text-xl font-semibold">
                       {project.title}
                     </h4>
@@ -287,7 +287,7 @@ function Experience() {
                         ))}
                       </ul>
                     </ViewMore>
-                  </div>
+                  </article>
                 ))}
             </div>
           </div>

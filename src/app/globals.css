@@ -19,8 +19,9 @@
   --color-purple: var(--purple);
   --color-brown: var(--brown);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
   --font-manjari: var(--font-manjari);
+  --font-fraunces: var(--font-fraunces);
 }
 
 @media (prefers-color-scheme: light) {
@@ -34,6 +35,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter);
+}
+
+h2:not(.font-inter), h3, h4, h5, h6 {
+  font-family: var(--font-fraunces);
 }
 
 /* View More button text change on expand */
