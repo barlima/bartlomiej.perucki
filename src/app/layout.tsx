@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Manjari, Fraunces } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,7 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${manjari.variable} ${fraunces.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${manjari.variable} ${fraunces.variable} antialiased`}
+      >
+        <Analytics />
         <div className="max-w-[1240px] mx-auto">
           <div className="px-4 md:px-8 lg:px-16">{children}</div>
         </div>
