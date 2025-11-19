@@ -35,10 +35,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter);
+  margin-bottom: 2rem;
 }
 
 h2:not(.font-inter), h3, h4, h5, h6 {
   font-family: var(--font-fraunces);
+}
+
+h2 {
+  font-size: 3.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.25rem;
+  }
 }
 
 /* View More button text change on expand */

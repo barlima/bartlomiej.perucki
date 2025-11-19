@@ -21,7 +21,7 @@ export default function Hero() {
             <h2 className="block mb-2 text-4xl font-bold font-inter md:hidden">
               Web Developer_
             </h2>
-            <p className="text-xl leading-[1.35rem] font-fraunces">
+            <p className="text-xl leading-[1.35rem] font-fraunces max-w-[85vw]">
               I'm a Senior Software Engineer who loves building fast, reliable
               products and exploring new technologies. When I'm not coding,
               you'll find me spending time with my wife and two kids, staying
@@ -30,6 +30,17 @@ export default function Hero() {
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="pt-1 pr-2 text-xs text-right">
+        <a
+          href="https://unsplash.com/@deni_eliash"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:underline"
+        >
+          Photo by Daniel Eliashevskyi on Unsplash
+        </a>
       </div>
     </div>
   );

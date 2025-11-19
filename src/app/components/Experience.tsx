@@ -206,11 +206,11 @@ function Experience() {
                   </span>
                 ) : (
                   <span className="font-fraunces">
-                    <span className="font-normal">till</span>{" "}
-                    <span className="font-bold">{experience.endDate}</span>
-                    <span className="mx-2">•</span>
                     <span className="font-normal">since</span>{" "}
                     <span className="font-bold">{experience.startDate}</span>
+                    <span className="mx-2">•</span>
+                    <span className="font-normal">till</span>{" "}
+                    <span className="font-bold">{experience.endDate}</span>
                   </span>
                 )}
               </div>
