@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Manjari, Fraunces } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+// import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -32,10 +34,48 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="title"
+          content="Bartłomiej Perucki – Senior Software Engineer Specializing in High-Performance Web Solutions"
+        />
+        <meta
+          name="description"
+          content="Discover the portfolio of Bartłomiej Perucki, a Senior Software Engineer with expertise in React.js, TypeScript, and modern web technologies. Passionate about delivering high-performance web solutions."
+        />
+        <meta
+          name="keywords"
+          content="Bartłomiej Perucki, Senior Software Engineer, React.js, TypeScript, Next.js, Web Development, Portfolio"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.perucki.be/" />
+
+        <meta
+          property="og:title"
+          content="Bartłomiej Perucki – Senior Software Engineer"
+        />
+        <meta
+          property="og:description"
+          content="Explore the work of Bartłomiej Perucki, specializing in React.js and TypeScript for high-performance web solutions."
+        />
+        <meta property="og:url" content="https://www.perucki.be/" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Bartłomiej Perucki – Senior Software Engineer"
+        />
+        <meta
+          name="twitter:description"
+          content="Frontend development portfolio focused on React.js, TypeScript, and high-performance applications."
+        />
+      </head>
       <body
         className={`${inter.variable} ${manjari.variable} ${fraunces.variable} antialiased`}
       >
         <Analytics />
+        {/* <SpeedInsights /> */}
         <div className="max-w-[1240px] mx-auto">
           <div className="px-4 md:px-8 lg:px-16">{children}</div>
         </div>
