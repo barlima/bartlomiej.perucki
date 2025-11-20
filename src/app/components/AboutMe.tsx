@@ -16,7 +16,7 @@ export default function AboutMe() {
             />
           </div>
 
-          <p className="w-full text-lg text-left md:w-2/3 xl:w-1/2">
+          <p className="w-full text-md md:text-lg text-left md:w-2/3 xl:w-1/2">
             As a Senior Software Engineer with extensive experience in both
             frontend and full-stack development, I am dedicated to delivering
             high-performance products. With a passion for investigating new
