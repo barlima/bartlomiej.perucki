@@ -46,7 +46,7 @@ h6 {
   font-family: var(--font-fraunces);
 }
 
-h2 {
+h2:not(.font-inter) {
   font-size: 3.5rem;
 
   @media (max-width: 768px) {

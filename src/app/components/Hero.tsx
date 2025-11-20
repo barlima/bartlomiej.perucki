@@ -18,10 +18,10 @@ export default function Hero() {
           </div>
 
           <div className="absolute left-4 md:left-auto md:right-12 bottom-8 md:bottom-auto md:top-[19vw] 2xl:top-[300px] text-light w-22/23 md:w-1/3">
-            <h2 className="block mb-2 text-4xl font-bold font-inter md:hidden">
+            <h2 className="block mb-2 text-2xl font-bold lg:text-4xl font-inter md:hidden">
               Web Developer_
             </h2>
-            <p className="text-xl leading-[1.35rem] font-fraunces max-w-[85vw]">
+            <p className="text-sm md:text-base lg:text-lg xl:text-xl leading-[1.35rem] font-fraunces max-w-[85vw]">
               I'm a Senior Software Engineer who loves building fast, reliable
               products and exploring new technologies. When I'm not coding,
               you'll find me spending time with my wife and two kids, staying

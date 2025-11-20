@@ -1,17 +1,38 @@
-import React from "react";
-
+import { FaExternalLinkAlt } from "react-icons/fa";
 import ViewMore from "./ViewMore";
 
 type Project = {
   name: string;
   role: string;
   period: string;
+  url?: string;
   description: string;
   responsibilities: string[];
   techStack: string[];
 };
 
 const projectsData: Project[] = [
+  {
+    name: "Vantage Charts",
+    role: "Developer",
+    period: "2024 - 2025",
+    url: "https://www.67talents.com/vantage",
+    description:
+      "Vantage Charts is a powerful data visualization tool that allows you to create stunning charts and graphs with ease. It is built with Apache ECharts and React.JS.",
+    responsibilities: [
+      "Built the Monday.com Plugin for data visualization using React.JS, TypeScript, and Apache ECharts.",
+      "Developed and maintained the charts and graph settings",
+      "Configured communication with Monday.com API",
+      "Assured complience with Monday.com requirements",
+    ],
+    techStack: [
+      "React.JS",
+      "TypeScript",
+      "Apache ECharts",
+      "Monday.com API",
+      "GraphQL",
+    ],
+  },
   {
     name: "Integrigo",
     role: "Co-Founder",
@@ -41,6 +62,7 @@ const projectsData: Project[] = [
   {
     name: "ESC charts",
     role: "Personal Project",
+    url: "https://esc-charts.vercel.app/",
     period: "2025",
     description:
       "A personal project where I explored and tested various AI-powered development tools and technologies while building a Eurovision Song Contest data visualization platform. This project served as a testing ground for modern AI coding assistants, MCP tools, and cloud services.",
@@ -82,7 +104,19 @@ export default function Projects() {
         {projectsData.map((project, index) => (
           <div key={index} className="flex flex-col gap-3">
             <div>
-              <h3 className="mb-1 text-2xl font-bold">{project.name}</h3>
+              <div className="flex justify-start items-center gap-3">
+                <h3 className="mb-1 text-2xl font-bold">{project.name}</h3>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-green transition-colors"
+                  >
+                    <FaExternalLinkAlt size={20} className="pb-0.5" />
+                  </a>
+                )}
+              </div>
               <p className="mb-2 text-lg text-gray-700">
                 {project.role} • {project.period}
               </p>
