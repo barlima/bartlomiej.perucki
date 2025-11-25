@@ -1,3 +1,16 @@
+"use client";
+
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  TITLE_ANIMATION,
+  CARD_ANIMATION,
+  SCROLL_TRIGGER_CONFIGS,
+} from "@/constants/gsapAnimations";
+
+gsap.registerPlugin(ScrollTrigger);
+
 type Certification = {
   name: string;
   issuer: string;
@@ -69,15 +82,50 @@ const certificationsData: Certification[] = [
 ];
 
 export default function Certifications() {
-  return (
-    <div className="flex flex-col gap-8 px-4 mx-auto mt-16 max-w-7xl">
-      <h2 className="text-6xl font-bold">Certifications</h2>
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate title
+      gsap.from(titleRef.current, {
+        ...TITLE_ANIMATION,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          ...SCROLL_TRIGGER_CONFIGS.title,
+        },
+      });
+
+      // Animate certification cards with stagger
+      const cards = containerRef.current?.querySelectorAll(".cert-card");
+      if (cards) {
+        gsap.from(cards, {
+          ...CARD_ANIMATION,
+          scrollTrigger: {
+            trigger: containerRef.current?.querySelector(".cert-grid"),
+            ...SCROLL_TRIGGER_CONFIGS.cards,
+          },
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="flex flex-col gap-8 px-4 mx-auto mt-16 max-w-7xl"
+    >
+      <h2 ref={titleRef} className="text-6xl font-bold">
+        Certifications
+      </h2>
+
+      <div className="cert-grid grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {certificationsData.map((cert, index) => (
           <div
             key={index}
-            className="flex flex-col items-center p-6 h-full bg-white rounded-lg border border-gray-200 shadow-sm transition-shadow hover:shadow-md"
+            className="cert-card flex flex-col items-center p-6 h-full bg-white rounded-lg border border-gray-200 shadow-sm transition-shadow hover:shadow-md"
           >
             <p className="mb-3 text-sm text-center text-gray-600">
               {cert.date}

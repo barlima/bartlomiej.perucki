@@ -1,4 +1,16 @@
+"use client";
+
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Skill } from "./Skill";
+import {
+  TITLE_ANIMATION,
+  SKILLS_ANIMATION,
+  SCROLL_TRIGGER_CONFIGS,
+} from "@/constants/gsapAnimations";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SKILLS = [
   "JavaScript",
@@ -24,9 +36,44 @@ const SKILLS = [
 ];
 
 export default function Skills() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate title - slides down from above
+      gsap.from(titleRef.current, {
+        ...TITLE_ANIMATION,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          ...SCROLL_TRIGGER_CONFIGS.title,
+        },
+      });
+
+      // Animate skills from top to bottom with stagger
+      const skills = containerRef.current?.querySelectorAll(".skill-item");
+      if (skills) {
+        gsap.from(skills, {
+          ...SKILLS_ANIMATION,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            ...SCROLL_TRIGGER_CONFIGS.skills,
+          },
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-4">
-      <h2 className="text-6xl font-bold">Skills</h2>
+    <div
+      ref={containerRef}
+      className="flex flex-col gap-4 px-4 mx-auto mt-16 max-w-7xl"
+    >
+      <h2 ref={titleRef} className="text-6xl font-bold">
+        Skills
+      </h2>
 
       <ul className="grid grid-cols-2 gap-4 mx-2 mt-8 xl:gap-8 md:mx-16">
         <div>

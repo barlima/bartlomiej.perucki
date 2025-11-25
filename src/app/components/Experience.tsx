@@ -1,6 +1,18 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import ViewMore from "./ViewMore";
+import {
+  TITLE_ANIMATION,
+  ENTRY_SLIDE_LEFT,
+  TIMELINE_LINE_ANIMATION,
+  SCROLL_TRIGGER_CONFIGS,
+} from "@/constants/gsapAnimations";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Project = {
   title: string;
@@ -182,16 +194,68 @@ const experienceData: ExperienceEntry[] = [
 ];
 
 function Experience() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate title
+      gsap.from(titleRef.current, {
+        ...TITLE_ANIMATION,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          ...SCROLL_TRIGGER_CONFIGS.title,
+        },
+      });
+
+      // Animate each experience entry
+      const entries = containerRef.current?.querySelectorAll(".experience-entry");
+      if (entries) {
+        entries.forEach((entry) => {
+          gsap.from(entry, {
+            ...ENTRY_SLIDE_LEFT,
+            scrollTrigger: {
+              trigger: entry,
+              ...SCROLL_TRIGGER_CONFIGS.cards,
+            },
+          });
+        });
+      }
+
+      // Animate timeline line
+      const timelineLine = containerRef.current?.querySelector(".timeline-line");
+      if (timelineLine) {
+        gsap.from(timelineLine, {
+          ...TIMELINE_LINE_ANIMATION,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            ...SCROLL_TRIGGER_CONFIGS.timeline,
+          },
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-8 px-4 mx-auto mt-16 max-w-7xl">
-      <h2 className="text-6xl font-bold">Experience</h2>
+    <div
+      ref={containerRef}
+      className="flex flex-col gap-8 px-4 mx-auto mt-16 max-w-7xl"
+    >
+      <h2 ref={titleRef} className="text-6xl font-bold">
+        Experience
+      </h2>
 
       <div className="relative">
         {/* Continuous vertical line */}
-        <div className="absolute left-[2rem] md:left-[7.5rem] top-0 bottom-0 w-0.5 bg-gray-300"></div>
+        <div className="timeline-line absolute left-[2rem] md:left-[7.5rem] top-0 bottom-0 w-0.5 bg-gray-300"></div>
 
         {experienceData.map((experience, index) => (
-          <div key={index} className="flex relative gap-3 mb-8 md:gap-6">
+          <div
+            key={index}
+            className="experience-entry flex relative gap-3 mb-8 md:gap-6"
+          >
             {/* Left side - Dates */}
             <div className="flex flex-shrink-0 justify-end items-start pt-0 w-6 text-right md:w-24">
               {/* Mobile view - rotated */}

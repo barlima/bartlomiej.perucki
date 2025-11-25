@@ -1,5 +1,17 @@
+"use client";
+
+import { useRef, useEffect } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ViewMore from "./ViewMore";
+import {
+  TITLE_ANIMATION,
+  CONTENT_FADE_UP_LARGE,
+  SCROLL_TRIGGER_CONFIGS,
+} from "@/constants/gsapAnimations";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Project = {
   name: string;
@@ -96,13 +108,50 @@ const projectsData: Project[] = [
 ];
 
 export default function Projects() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate title
+      gsap.from(titleRef.current, {
+        ...TITLE_ANIMATION,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          ...SCROLL_TRIGGER_CONFIGS.title,
+        },
+      });
+
+      // Animate each project card
+      const projects = containerRef.current?.querySelectorAll(".project-card");
+      if (projects) {
+        projects.forEach((project) => {
+          gsap.from(project, {
+            ...CONTENT_FADE_UP_LARGE,
+            scrollTrigger: {
+              trigger: project,
+              ...SCROLL_TRIGGER_CONFIGS.content,
+            },
+          });
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-8 px-4 mx-auto mt-16 max-w-7xl">
-      <h2 className="text-6xl font-bold">Projects</h2>
+    <div
+      ref={containerRef}
+      className="flex flex-col gap-8 px-4 mx-auto mt-16 max-w-7xl"
+    >
+      <h2 ref={titleRef} className="text-6xl font-bold">
+        Projects
+      </h2>
 
       <div className="flex flex-col gap-12">
         {projectsData.map((project, index) => (
-          <div key={index} className="flex flex-col gap-3">
+          <div key={index} className="project-card flex flex-col gap-3">
             <div>
               <div className="flex justify-start items-center gap-3">
                 <h3 className="mb-1 text-2xl font-bold">{project.name}</h3>
