@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manjari, Fraunces } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-// import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 
@@ -75,7 +75,7 @@ export default function RootLayout({
         className={`${inter.variable} ${manjari.variable} ${fraunces.variable} antialiased`}
       >
         <Analytics />
-        {/* <SpeedInsights /> */}
+        <SpeedInsights />
         <div className="max-w-[1240px] mx-auto">
           <div className="px-4 md:px-8 lg:px-16">{children}</div>
         </div>
