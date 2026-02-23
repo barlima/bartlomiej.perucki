@@ -21,13 +21,13 @@ export default function Hero() {
             <h2 className="block mb-2 text-2xl font-bold lg:text-4xl font-inter md:hidden">
               Web Developer_
             </h2>
-            <p className="text-sm md:text-base lg:text-lg xl:text-xl leading-[1.35rem] font-fraunces max-w-[85vw]">
+            {/* <p className="text-sm md:text-base lg:text-lg xl:text-xl leading-[1.35rem] font-fraunces max-w-[85vw]">
               I'm a Senior Software Engineer who loves building fast, reliable
               products and exploring new technologies. When I'm not coding,
               you'll find me spending time with my wife and two kids, staying
               active with sports, traveling to new places, or diving into family
               genealogy.
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

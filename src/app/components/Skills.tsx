@@ -24,7 +24,7 @@ const SKILLS = [
   "HTML",
   "CSS",
   "Prompting",
-  "AI Agents",
+  "AI Agents (Claude Code, Cursor)",
   "MaterialUI",
   "TailwindCSS",
   "styled-components",

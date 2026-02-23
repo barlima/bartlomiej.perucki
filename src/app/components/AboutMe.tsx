@@ -22,7 +22,7 @@ export default function AboutMe() {
             high-performance products. With a passion for investigating new
             technologies, I continuously enhance my skill set to stay at the
             forefront of industry advancements. Outside of work, I enjoy
-            spending quality time with my wife and my kid, and we share a love
+            spending quality time with my wife and my kids, and we share a love
             for traveling and exploring new destinations together.
           </p>
         </div>
