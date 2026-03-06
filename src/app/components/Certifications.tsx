@@ -21,6 +21,39 @@ type Certification = {
 
 const certificationsData: Certification[] = [
   {
+    name: "Introduction to agent skills",
+    issuer: "Anthropic",
+    date: "2026",
+    url: "https://verify.skilljar.com/c/cihrmuypkqsx",
+    skills: [
+      "Claude Code",
+      "Skills",
+    ],
+  },
+  {
+    name: "Claude Code in Action",
+    issuer: "Anthropic",
+    date: "2026",
+    url: "https://verify.skilljar.com/c/xcpwtk2auncc",
+    skills: [
+      "Claude Code",
+      "MCP",
+      "AIPE"
+    ],
+  },
+  {
+    name: "Building Data Lakes on AWS",
+    issuer: "Coursera",
+    date: "2026",
+    url: "https://coursera.org/share/7025aa5d3e895fc9a25518705b7e6544",
+    skills: [
+      "AWS S3",
+      "AWS Athena",
+      "AWS Glue",
+      "AWS Lake Formation",
+    ],
+  },
+  {
     name: "AWS Cloud Technical Essentials",
     issuer: "Coursera",
     date: "2025",
