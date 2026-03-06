@@ -130,7 +130,7 @@ const experienceData: ExperienceEntry[] = [
     ],
   },
   {
-    company: "Solarwinds",
+    company: "SolarWinds",
     role: "Full Stack Developer",
     startDate: "Sep 2017",
     endDate: "Feb 2020",
