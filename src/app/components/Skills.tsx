@@ -18,7 +18,7 @@ const SKILLS = [
   "TypeScript",
   "Next.JS",
   "Redux Toolkit",
-  "React Toolkit Query",
+  "Redux Toolkit Query",
   "Node.JS",
   "GraphQL",
   "HTML",
