@@ -74,7 +74,6 @@ const projectsData: Project[] = [
   {
     name: "ESC charts",
     role: "Personal Project",
-    url: "https://esc-charts.vercel.app/",
     period: "2025",
     description:
       "A personal project where I explored and tested various AI-powered development tools and technologies while building a Eurovision Song Contest data visualization platform. This project served as a testing ground for modern AI coding assistants, MCP tools, and cloud services.",
