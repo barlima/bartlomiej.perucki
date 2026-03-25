@@ -9,31 +9,9 @@ import {
   SKILLS_ANIMATION,
   SCROLL_TRIGGER_CONFIGS,
 } from "@/constants/gsapAnimations";
+import { SKILLS } from "@/data/skills";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const SKILLS = [
-  "JavaScript",
-  "React.JS",
-  "TypeScript",
-  "Next.JS",
-  "Redux Toolkit",
-  "Redux Toolkit Query",
-  "Node.JS",
-  "GraphQL",
-  "HTML",
-  "CSS",
-  "Prompting",
-  "AI Agents (Claude Code, Cursor)",
-  "MaterialUI",
-  "TailwindCSS",
-  "styled-components",
-  "AntDesign",
-  "React Query",
-  "AWS",
-  "Vite",
-  "Docker",
-];
 
 export default function Skills() {
   const containerRef = useRef<HTMLDivElement>(null);

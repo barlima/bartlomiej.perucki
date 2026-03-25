@@ -54,6 +54,10 @@ h2:not(.font-inter) {
   }
 }
 
+.cv-page h2 {
+  font-size: 1.5rem;
+}
+
 /* View More button text change on expand */
 .view-more-details .view-more-button::after {
   content: "";
