@@ -8,6 +8,18 @@ export type Certification = {
 
 export const certificationsData: Certification[] = [
   {
+    name: "AWS Fundamentals",
+    issuer: "Coursera",
+    date: "2026",
+    url: "https://www.coursera.org/account/accomplishments/specialization/certificate/K8CQEX6UKQS5",
+    skills: [
+      "AWS",
+      "CloudFront",
+      "Architecture",
+      "Data migration",
+    ],
+  },
+  {
     name: "Introduction to agent skills",
     issuer: "Anthropic",
     date: "2026",
