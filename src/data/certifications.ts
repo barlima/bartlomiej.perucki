@@ -8,6 +8,19 @@ export type Certification = {
 
 export const certificationsData: Certification[] = [
   {
+    name: "Claude Code for Real Engineers",
+    issuer: "AIHero.dev",
+    date: "2026",
+    url: "https://res.cloudinary.com/total-typescript/image/upload/v1775744665/certificate/eedfabb9-a54c-414b-905c-e8e0087494be/claude-code-for-real-engineers-2026-04.png",
+    skills: [
+      "AI",
+      "Claude Code",
+      "PRD Generation",
+      "Agent Skills",
+      "AI Task Management",
+    ],
+  },
+  {
     name: "AWS Fundamentals",
     issuer: "Coursera",
     date: "2026",
