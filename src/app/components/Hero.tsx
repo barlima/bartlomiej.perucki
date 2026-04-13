@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="relative h-screen">
+    <div className="relative h-[50vh] sm:h-screen">
       <div className="absolute inset-0 bg-background h-[17vw] 2xl:h-[262px]">
         <div className="text-[min(10vw,152px)] h-[20vw] font-black leading-[9vw] 2xl:leading-[138px] uppercase text-transparent bg-clip-text bg-[url('/images/forest.jpg')] bg-cover absolute w-full border-[1px] border-solid border-background border-b-0">
           <h1 className="font-inter">
@@ -11,7 +11,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="h-[80vh] 2xl:h-[calc(100vh-96px)] bg-[url('/images/forest.jpg')] bg-cover after:content-[''] after:absolute after:h-[calc(100%+82px)] after:left-0 after:-top-[40px] after:bg-background after:w-[0.6vw] border-[1px] border-solid border-background border-b-0 border-r-[0.6vw]">
+      <div className="h-[40vh] sm:h-[80vh] 2xl:h-[calc(100vh-96px)] bg-[url('/images/forest.jpg')] bg-cover after:content-[''] after:absolute after:h-[calc(100%+82px)] after:left-0 after:-top-[40px] after:bg-background after:w-[0.6vw] border-[1px] border-solid border-background border-b-0 border-r-[0.6vw]">
         <div className="relative h-full">
           <div className="hidden absolute left-4 bottom-36 md:bottom-8 md:left-12 md:block text-light">
             <h2 className="text-4xl font-bold font-inter">Web Developer_</h2>
