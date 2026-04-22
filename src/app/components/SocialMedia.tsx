@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { FaRegEnvelope } from "react-icons/fa6";
 
 export default function SocialMedia() {
@@ -63,6 +63,16 @@ export default function SocialMedia() {
       >
         <div className="text-white">
           <FaRegEnvelope size={32} />
+        </div>
+      </a>
+      <a
+        href="tel:+48788501607"
+        aria-label="Phone"
+        className={`social-icon p-3 rounded-full bg-green hover:opacity-70 transition-all duration-300 ${isVisible ? "animate-bounce-in" : "opacity-0"}`}
+        style={{ animationDelay: "0.3s" }}
+      >
+        <div className="text-white">
+          <FaPhoneAlt size={32} />
         </div>
       </a>
     </div>
