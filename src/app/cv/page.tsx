@@ -20,14 +20,21 @@ export default function CVPage() {
       <header className="mb-6 print:mb-4">
         <h1 className="text-4xl font-bold font-fraunces leading-tight m-0">Bartłomiej Perucki</h1>
         <p className="text-lg text-gray-600 mt-0">Senior Software Engineer</p>
-        <a
-          href="https://www.perucki.be"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-gray-500 hover:underline"
-        >
-          www.perucki.be
-        </a>
+
+        <div className="flex items-center gap-2">
+          <a href="mailto:bartekperucki@gmail.com" className="text-xs text-gray-500 hover:underline">bartekperucki@gmail.com</a>
+          <span className="text-xs text-gray-500">•</span>
+          <a href="tel:+48788501607" className="text-xs text-gray-500 hover:underline">+48 788 501 607</a>
+          <span className="text-xs text-gray-500">•</span>
+          <a
+            href="https://www.perucki.be"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-gray-500 hover:underline"
+          >
+            www.perucki.be
+          </a>
+        </div>
       </header>
 
       {/* Bio */}
