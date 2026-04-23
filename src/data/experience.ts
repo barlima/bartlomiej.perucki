@@ -22,7 +22,7 @@ export const experienceData: ExperienceEntry[] = [
     startDate: "Mar 2020",
     endDate: "present",
     description:
-      "As a Senior Software Engineer with extensive experience in both frontend and full-stack development, I am dedicated to delivering high-performance products. With a passion for investigating new technologies, I continuously enhance my skill set to stay at the forefront of industry advancements.",
+      "As a Senior Software Engineer & Consultant with extensive experience in both frontend and full-stack development, I am dedicated to delivering high-performance products and own the technical aspects of the projects I work on — from architecture and design to implementation and maintenance. In my consulting capacity, I qualify new leads, conduct technical scans, and prepare project estimations.",
     projects: [
       {
         title: "Logistics industry",
@@ -34,7 +34,7 @@ export const experienceData: ExperienceEntry[] = [
           "Developed the API client using Redux Toolkit Query, ensuring efficient data fetching and synchronization.",
         ],
         responsibilitiesSummary:
-          "Architected and led the frontend of a logistics platform — built scalable React.JS/TypeScript components, managed state with Redux Toolkit, handled data fetching via RTK Query, and mentored a team of frontend developers.",
+          "Architected and led the frontend of a logistics platform — built scalable React.JS/TypeScript components, managed state with Redux Toolkit, handled data fetching via RTK Query, and mentored a team of frontend developers. Also responsible for creating tasks, performing design reviews, aligning with the client on expectations, and reviewing specs.",
         techStack: [
           "React.JS",
           "TypeScript",
@@ -54,7 +54,7 @@ export const experienceData: ExperienceEntry[] = [
           "Performed comprehensive code refactoring to improve code readability, reduce technical debt, and enhance performance.",
         ],
         responsibilitiesSummary:
-          "Improved an entertainment platform's React.JS/TypeScript codebase through performance optimization, project restructuring, library upgrades, and broad refactoring to reduce technical debt.",
+          "Improved an entertainment platform's React.JS/TypeScript codebase through performance optimization, project restructuring, library upgrades, and broad refactoring to reduce technical debt. Also responsible for task creation and verifying solutions with the client.",
         techStack: ["React.JS", "TypeScript", "Redux", "MaterialUI", "Lodash"],
       },
       {
@@ -89,7 +89,7 @@ export const experienceData: ExperienceEntry[] = [
           "Designed and implemented the user interface using AntDesign, focusing on creating an intuitive and visually appealing user experience.",
         ],
         responsibilitiesSummary:
-          "Bootstrapped a real estate platform from scratch with React.JS, TypeScript, and GraphQL Apollo Client, and built the UI with AntDesign.",
+          "Led the frontend of a real estate platform from inception, selecting the technology stack and delivering the MVP in 3 months — bootstrapped the project with React.JS, TypeScript, and GraphQL Apollo Client, and built the UI with AntDesign.",
         techStack: [
           "React.JS",
           "TypeScript",
@@ -110,7 +110,7 @@ export const experienceData: ExperienceEntry[] = [
           "Implemented new features and continuously improved performance to enhance the overall user experience.",
         ],
         responsibilitiesSummary:
-          "Bootstrapped an engineering platform with React.JS, TypeScript, and GraphQL Apollo Client — integrated the yFiles graph library in a Lerna monorepo, built the MaterialUI interface, and continuously delivered new features.",
+          "Led the frontend of an engineering platform from inception, selecting the technology stack and bootstrapping the project with React.JS, TypeScript, and GraphQL Apollo Client — integrated the yFiles graph library in a Lerna monorepo, built the MaterialUI interface, and continuously delivered new features.",
         techStack: [
           "React.JS",
           "TypeScript",

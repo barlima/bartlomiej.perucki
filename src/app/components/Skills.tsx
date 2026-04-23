@@ -55,7 +55,7 @@ export default function Skills() {
 
       <ul className="grid grid-cols-2 gap-4 mx-2 mt-8 xl:gap-8 md:mx-16">
         <div>
-          {SKILLS.slice(0, 10).map((skill, index) => (
+          {SKILLS.slice(0, 16).map((skill, index) => (
             <Skill key={skill} index={index}>
               {skill}
             </Skill>
@@ -63,7 +63,7 @@ export default function Skills() {
         </div>
 
         <div>
-          {SKILLS.slice(10).map((skill, index) => (
+          {SKILLS.slice(16).map((skill, index) => (
             <Skill key={skill} index={index + 10}>
               {skill}
             </Skill>
