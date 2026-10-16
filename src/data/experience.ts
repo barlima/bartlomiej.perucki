@@ -22,7 +22,8 @@ export const experienceData: ExperienceEntry[] = [
     startDate: "Aug 2026",
     endDate: "present",
     description:
-      "As a Senior Software Engineer at j-labs, I design, build, and maintain high-quality software for client projects.",
+      "As a Senior Software Engineer at j-labs, I design, build, and maintain high-quality software for one of the world's leading banks, working closely with AI throughout the development process.",
+    techStack: ["React.JS", "TypeScript", "AWS", "Tailwind", "LLMs", "Zustand"],
   },
   {
     company: "Amsterdam Standard",
