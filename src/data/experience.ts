@@ -17,10 +17,19 @@ export type ExperienceEntry = {
 
 export const experienceData: ExperienceEntry[] = [
   {
+    company: "j-labs",
+    role: "Senior Software Engineer",
+    startDate: "Aug 2026",
+    endDate: "present",
+    description:
+      "As a Senior Software Engineer at j-labs, I design, build, and maintain high-quality software for a leading global bank, building AI-powered tools.",
+    techStack: ["React.JS", "TypeScript", "AWS", "Tailwind", "LLMs", "Zustand", "zod"],
+  },
+  {
     company: "Amsterdam Standard",
     role: "Senior Software Engineer & Consultant",
     startDate: "Mar 2020",
-    endDate: "present",
+    endDate: "Jul 2026",
     description:
       "As a Senior Software Engineer & Consultant with extensive experience in both frontend and full-stack development, I am dedicated to delivering high-performance products and own the technical aspects of the projects I work on — from architecture and design to implementation and maintenance. In my consulting capacity, I qualify new leads, conduct technical scans, and prepare project estimations.",
     projects: [
