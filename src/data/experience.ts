@@ -22,8 +22,27 @@ export const experienceData: ExperienceEntry[] = [
     startDate: "Aug 2026",
     endDate: "present",
     description:
-      "As a Senior Software Engineer at j-labs, I design, build, and maintain high-quality software for a leading global bank, building AI-powered tools.",
-    techStack: ["React.JS", "TypeScript", "AWS", "Tailwind", "LLMs", "Zustand", "zod"],
+      "As a Senior Software Engineer at j-labs, I design, build, and maintain high-quality software for client projects.",
+    projects: [
+      {
+        title: "AI tool for the banking industry",
+        responsibilities: [
+          "Built an AI-powered tool for a leading global bank using React.JS and TypeScript.",
+          "Integrated LLMs into the application to support the bank's workflows.",
+        ],
+        responsibilitiesSummary:
+          "Built an AI-powered tool for a leading global bank — developed the React.JS/TypeScript frontend and integrated LLMs into the application.",
+        techStack: [
+          "React.JS",
+          "TypeScript",
+          "AWS",
+          "Tailwind",
+          "LLMs",
+          "Zustand",
+          "zod",
+        ],
+      },
+    ],
   },
   {
     company: "Amsterdam Standard",
